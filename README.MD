@@ -1,7 +1,7 @@
 Description: Genzlator is a classification and webscraping based web app focused on bridging the generational cultural gap. The user can input any string into the genZlator and it will return the definition and example of all slang words within it. These definitions and examples are pulled from https://www.vocabulary.com/ for the traditional definitions, https://www.dictionary.com/e/slang/ for the slang definitions, and http://www.netlingo.com/acronyms.php for abbreviations (eg. gn, btw, omw) using web scraping. 
 
 We split the project into a few sections:
-Our frontend involves using a Flask API, Material UI, React modules, and HTML/CSS. The user can generate text input in the text editor field. Pressing the "genslate" button allows our Flask API to fetch the string and use the POST method to relay inputs to the backend python files. 
+Our frontend involves using a Flask API, Material UI, React modules, and HTML/CSS. The user can generate text input in the text editor field. Pressing the "genzlate" button allows our Flask API to fetch the string and use the POST method to relay inputs to the backend python files. 
 
 Word Tagging Algorithm:
 	Using NLTK, we processed the input string by removing stopwords (i.e. common words that don't contribute to the meaning of a sentence like "the" "and" "is") and replacing contractions with expanded meanings. We also tagged the remaining words with their contextual part of speech.
