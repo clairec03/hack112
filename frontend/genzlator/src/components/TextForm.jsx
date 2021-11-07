@@ -1,16 +1,18 @@
 import {TextField} from '@material-ui/core'
 
 
-function TextForm({disabled = false, defaultValue}){
+function TextForm({disabled = false, value, label,
+onChange}){
 
     return (
         <TextField
+          onChange={onChange}
           disabled={disabled}
           id="standard-multiline-static"
-          label="Multiline"
+          label={label}
           multiline
           rows={10}
-          defaultValue={defaultValue}
+          value={value}
           variant="standard"
           color='success'
         />
