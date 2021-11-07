@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import TextForm from './TextForm'
 import {Deploy} from './Deploy'
-import {Button, Typography, makeStyles} from '@material-ui/core'
-// import HoverableText from './Hover.js'
+import {Button, Typography, useStyles} from '@material-ui/core'
+import HoverableText from './components/Hover.js'
 
 const useStyles = makeStyles(theme => ({
     translatorContainer: {
