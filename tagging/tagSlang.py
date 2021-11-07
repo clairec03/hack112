@@ -12,12 +12,9 @@ def checkAll(s):
     slang = set()
     for elem in posSlang:
         if (elem[0] in words.words()):
-            if checkPOSChange(elem) and inSlangDict(elem):
-                print(elem)
-                slang.add(elem[0])
-        else:
-            print(elem)
-            slang.add(elem[0])
+            if (not checkPOSChange(elem)) or notInSlangDict(elem[0]):
+                continue
+        slang.add(elem[0])
     return slang
 
 def checkPOSChange(elem):
@@ -30,44 +27,21 @@ def checkPOSChange(elem):
         new = pos[i].split()[0]
         new = removePunct(new)
         pos[i] = new
-    print(pos,wordPOS)
     if wordPOS in set(pos):
         return False
     print(word,pos)
     return True
 
-def inSlangDict(elem):
-    word,wordPOS = elem
+def notInSlangDict(word):
     url = "https://slangit.com/meaning/" + word + ""
     file = requests.get(url).text
     soup = BeautifulSoup(file,'lxml')
+    outer = soup.find(id = "main")
+    slang = outer.find(class_ = "slang_meanings")
+    if slang == None:
+        return True
+    return False
     
-
-# def scrape(word):
-#     url = "https://www.dictionary.com/browse/" + word + ""
-#     file = requests.get(url).text
-#     soup = BeautifulSoup(file,'lxml')
-#     poses = []
-#     outer = soup.find(class_="css-1avshm7 e16867sm0")
-#     if outer == None:
-#         return poses
-#     mainDefs = outer.find(class_="default-content")
-#     if mainDefs == None:
-#         pos = outer.find_all(class_="luna-pos")
-#     else:
-#         print(mainDefs)
-#         pos = mainDefs.find_all(class_="luna-pos")
-#     print("POS: ",pos)
-#     for i in pos:
-#         poses.append(i.get_text())
-#     if len(poses) > 1 and poses[-1] == 'noun':
-#         if classifyWord(word) == 'concrete':
-#             return poses[:-1]
-#         else:
-#             return poses
-#     else:
-#         return poses
-
 def stem(w):
     stemmer = PorterStemmer()
     return stemmer.stem(w)
