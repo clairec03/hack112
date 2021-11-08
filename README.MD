@@ -1,3 +1,5 @@
+2021 1st place Hack112 winner!
+
 Description: Genzlator is a classification and webscraping based web app focused on bridging the generational cultural gap. The user can input any string into the genZlator and it will return the definition and example of all slang words within it. These definitions and examples are pulled from https://www.vocabulary.com/ for the traditional definitions, https://www.dictionary.com/e/slang/ for the slang definitions, and http://www.netlingo.com/acronyms.php for abbreviations (eg. gn, btw, omw) using web scraping. 
 
 We split the project into a few sections:
